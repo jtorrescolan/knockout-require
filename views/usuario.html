@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div>
+		<input type="text" placeholder="id" data-bind="value: IdUsuario">
+		<input type="text" placeholder="nombre" data-bind="value: NombreUsuario">
+		<button type="button" data-bind="click: Save">Grabar</button>
+	</div>
+	<div>
+		<table>
+			<thead>
+				<th>Usuario Id</th>
+				<th>Nombre usuario</th>
+			</thead>
+			<tbody data-bind="foreach: Usuarios">
+				<tr>
+					<td data-bind="text: Id_Usuario"></td>
+					<td data-bind="text: NombreUsuario"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript" data-main="../app/common" src="../app/require.js"></script>
+	<script type="text/javascript">
+		require(['common'], function(){
+			require(['ko','viewmodels/usuarioVM/usuarioVM'], function(ko, usuarioVM){
+				ko.applyBindings(new usuarioVM);
+			});
+		});
+	</script>
+</body>
+</html>
